@@ -5,25 +5,25 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n) && n > 0;
 }
 
-function Portion (resourse, last) {
+function Portion(resourse, last) {
   this.resourse = Number(resourse);
   this.last = last || false;
 }
 
-Portion.prototype.getMaxPeople = function() {
+Portion.prototype.getMaxPeople = function () {
   let people = this.resourse / COST_SINGLE_PEOPLE;
-  
+
   return this.last ? Math.ceil(people) : Math.floor(people);
 }
 
-Portion.prototype.getMaxTime = function() {
+Portion.prototype.getMaxTime = function () {
   return TIME_NEW_PEOPLE * this.getMaxPeople();
 }
 
 function getMaxEating(portion) {
   let portionEating = [];
-  portionEating[0]= portion[0].getMaxPeople() * portion[1].getMaxTime() / 3600;
-  portionEating[1]= portion[1].getMaxPeople() * portion[0].getMaxTime()  / 3600;
+  portionEating[0] = portion[0].getMaxPeople() * portion[1].getMaxTime() / 3600;
+  portionEating[1] = portion[1].getMaxPeople() * portion[0].getMaxTime() / 3600;
 
   return portionEating;
 }
@@ -36,13 +36,13 @@ function $submit() {
   let minResourceForPeopleForNextCity = minPeopleForNextCity * COST_SINGLE_PEOPLE;
   let differencePeople = null;
   let a = null;
-  
-  if (!isNumeric(storage)){
+
+  if (!isNumeric(storage)) {
     document.getElementById("help").style.display = "block";
     document.getElementById("storage").style.borderColor = 'red';
     return null;
   }
-  
+
   document.getElementById("help").style.display = 'none';
   document.getElementById("storage").style.borderColor = 'gainsboro';
 
@@ -51,19 +51,19 @@ function $submit() {
     portion[0] = new Portion(storage);
     //portion[0] = storage;
     portion[1] = new Portion(differencePeople, true);
-    
+
     let a = getMaxEating(portion);
-    
+
     let result;
-    result = "За время, пока будет создаваться маленькая кучка, большая скушает: " + a[0] + "(За " + (portion[1].getMaxTime() / 3600) +" часов),<br>а малеькая, за время, пока будет создаваться большя кучка, скушает: " + a[1] + "(За " + (portion[0].getMaxTime() / 3600) +" часов)";
-    
+    result = "За время, пока будет создаваться маленькая кучка, большая скушает: " + a[0] + "(За " + (portion[1].getMaxTime() / 3600) + " часов),<br>а малеькая, за время, пока будет создаваться большя кучка, скушает: " + a[1] + "(За " + (portion[0].getMaxTime() / 3600) + " часов)";
+
     return document.getElementById("result").innerHTML = '<p>' + result + '</p>';
-    
+
   } else {
     let result = document.getElementById("result").innerHTML = "<p>Тебе выгоднее строить с первого раза</p>";
-//    return result;
+    //    return result;
   }
-      console.log(portion, a);
+  console.log(portion, a);
 }
 
 // Из кол-ва поселенцев и времени можно высчитать кол-во потребления еды

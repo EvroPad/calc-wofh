@@ -1,10 +1,10 @@
 @font-face {
-    font-family: EvroPad;
-    src: url(./VEFlomasticaCyrillic.ttf);
+  font-family: EvroPad;
+  src: url(./VEFlomasticaCyrillic.ttf);
 }
 
 body {
-  background: #f3f3f3; 
+  background: #f3f3f3;
 }
 
 h1 {
@@ -20,25 +20,31 @@ h1 {
   display: none;
 }
 
-/*
-.form {
-  background: white;
-  border: 2px solid black;
-  width: 40%;
-  font-size: 150%;
-  padding: 30px;
-  margin: auto;
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-*/
 
-/*
-#submit {
-  width: 30%;
-  border-radius: 20px;
+.content {
+  flex: 1;
 }
-*/
 
-/*
-p {
-  margin-bottom: 0px;
-}*/
+footer {
+  background-color: #ececec;
+  text-align: center;
+}
+
+footer:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.copyright {
+  margin-top: 2.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -0.35em;
+}

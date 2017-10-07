@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Calculator For Wofh</title>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="./favicon.ico">
-    <!-- CSS Reset -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 
-    <!-- Milligram CSS minified -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+<head>
+  <title>Calculator For Wofh</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <!-- CSS Reset -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 
-    <!-- You should properly set the path from the main file. -->
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <base href="/calc-wofh/">
-  <body>
-    <h1>Как выгоднее строить поселенцев?</h1>
-    <div class="container">
-       <div class="row">
-    <div class="form column column-50 column-offset-25">
-    <form name="profit" >
-      <fieldset>
-      <label for="cities">Сколько <strong>сейчас</strong> у вас городов?</label>
-      <select id="cities" name="cities">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <br>
-      <label for="storage">Обьем склада</label>
-      <input id="storage" type="text" name="storage" value="" placeholder="???">
-      <p id="help">Введите положительное число</p>
-      <br>
-      <input type="button" value="Посчитать" class="button" id="submit" onclick="$submit()">
-      <div id="result"></div>
-      </fieldset>
-    </form>  
-         </div></div> </div>
-    <script src="./main.js"></script>
-  </body>
-</html> 
+  <!-- Milligram CSS minified -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+  <!-- You should properly set the path from the main file. -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Как выгоднее строить поселенцев?</h1>
+    </header>
+    <main class="content">
+      <div class="container">
+        <div class="row">
+          <div class="form column column-50 column-offset-25">
+            <form name="profit">
+              <fieldset>
+                <label for="cities">Сколько <strong>сейчас</strong> у вас городов?</label>
+                <select id="cities" name="cities">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <label for="storage">Обьем склада</label>
+                <input id="storage" type="text" name="storage" value="" placeholder="???">
+                <p id="help">Введите положительное число</p>
+                <input type="button" value="Посчитать" class="button" id="submit" onclick="$submit()">
+                <div id="result"></div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="copyright">© Gleb Danylov, 2017</p>
+    </footer>
+  </div>
+  <script src="./main.js"></script>
+</body>
+
+</html>
