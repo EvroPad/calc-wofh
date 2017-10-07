@@ -38,12 +38,9 @@ function $submit() {
   let a = null;
 
   if (!isNumeric(storage)) {
-    document.getElementById("help").style.display = "block";
     document.getElementById("storage").style.borderColor = 'red';
     return null;
   }
-
-  document.getElementById("help").style.display = 'none';
   document.getElementById("storage").style.borderColor = 'gainsboro';
 
   if (minResourceForPeopleForNextCity > storage) {
